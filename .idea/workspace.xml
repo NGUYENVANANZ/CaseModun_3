@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="82f6ffbd-c650-4722-a080-390caac30e37" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../CaseDeMo/CaseDeMo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/AdminController/DetailBillAdminServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/DeatailBillServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/SearchProductServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController_Login/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Filter/AdminFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Filter/SellerFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Filter/UserFilter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Case_Modun_2/Case_Modun_2.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Case_Modun_2/src/Case/DangNhap_DangKy/DangNhapDangKy.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Case_Modun_2/src/Case/DinhDangChuoi/DinhDang.java" afterDir="false" />
@@ -79,27 +80,18 @@
       <change afterPath="$PROJECT_DIR$/../iPortfolio/assets/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iPortfolio/profile-img.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AdminController/AdminQLU_Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AdminController/AdminQLU_Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProductController/ProductServlet_Buy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProductServlet_Buy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProductController/ProductServlet_Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProductServlet_Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProductController/ProductServlet_CartEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProductServlet_CartEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProductController/ProductServlet_Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProductServlet_Show.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProductController/ProductServlet_showBill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProductServlet_showBill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ProductController/ProductSeverlet_Iormation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProductSeverlet_Iormation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController_Login/User_SigninServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController_Login/User_SigninServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController_Login/User_SignupServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController_Login/User_SignupServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Bill/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Bill/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/Cart/Cart_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/Cart/Cart_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ProductService/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ProductService/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/UserService/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/UserService/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Cart/CRUD_cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Cart/CRUD_cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Product/CRUD_product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Product/CRUD_product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/User/CRUD_user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/User/CRUD_user.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WedAdmin/WebAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedAdmin/WebAdmin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WedAdmin/WebAdminHistory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedAdmin/WebAdminHistory.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WedAdmin/WebAdminQLU.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedAdmin/WebAdminQLU.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSeller.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSeller.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSellerCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSellerCart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSellerHistory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSellerHistory.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSellerInformation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedSeller/WebSellerInformation.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUserCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUserCart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUserHistory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUserHistory.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUserInformation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WedUser/WebUserInformation.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,30 +133,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/C0722G1/CaseModun_3/src/main/webapp/WedSeller&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/C0722G1/CaseModun_3/src/main/webapp/Signin_Signup/Signin.jsp",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\C0722G1\CaseModun_3\src\main\webapp\WedSeller" />
@@ -305,7 +297,7 @@
       <workItem from="1667823060597" duration="1945000" />
       <workItem from="1667839089501" duration="3000" />
       <workItem from="1667839138529" duration="676000" />
-      <workItem from="1667871394801" duration="1002000" />
+      <workItem from="1667871394801" duration="4891000" />
     </task>
     <servers />
   </component>

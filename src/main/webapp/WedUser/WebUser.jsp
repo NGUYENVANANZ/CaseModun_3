@@ -66,7 +66,7 @@
                 </li>
                 <li><a href="/ProductServlet_showBill" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
                     <span>Lịch Sử </span></a></li>
-                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i>
+                <li><a href="/LogoutServlet" class="nav-link scrollto"><i class="bx bx-server"></i>
                     <span>Đăng Xuất</span></a>
                 </li>
             </ul>
