@@ -11,13 +11,37 @@ import java.util.List;
 public class CRUD_user {
     public static Connection connection = Connect_MySql.getConnect();
 
-    public static List<User> getAll() {
-        String sql = "Select * from acount";
-        List<User> users = new ArrayList<>();
+//    public static List<User> getAll() {
+//        String sql = "Select * from acount";
+//        List<User> users = new ArrayList<>();
+//        try {
+//            // tạo cái xe để đưa câu lệnh sql qua CSDL
+//            Statement statement = connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery(sql);
+//
+//            while (resultSet.next()) {
+//                String name = resultSet.getString("name");
+//                String userName = resultSet.getString("userName");
+//                String passWord = resultSet.getString("userpassWord");
+//                String img = resultSet.getString("img");
+//                int role = resultSet.getInt("id_role");
+//                users.add(new User(name, userName, passWord, img, role));
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return users;
+//    }
+
+    public static User returnUser(String username, String password) {
+        String sql = "Select * from acount where userName  = ? and userpassWord = ?";
+        User user = null;
         try {
             // tạo cái xe để đưa câu lệnh sql qua CSDL
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
@@ -25,12 +49,12 @@ public class CRUD_user {
                 String passWord = resultSet.getString("userpassWord");
                 String img = resultSet.getString("img");
                 int role = resultSet.getInt("id_role");
-                users.add(new User(name, userName, passWord, img, role));
+                user = new User(name, userName, passWord, img, role);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return users;
+        return user;
     }
 
     public static List<User> getAllUser() {
@@ -54,6 +78,8 @@ public class CRUD_user {
         }
         return users;
     }
+
+
 
     public static void save(User user) {
         try {

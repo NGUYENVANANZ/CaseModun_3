@@ -67,7 +67,8 @@
                 </li>
                 <li><a href="/ProductServlet_showBill" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
                     <span>Lịch Sử </span></a></li>
-                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Đăng Xuất</span></a>
+                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i>
+                    <span>Đăng Xuất</span></a>
                 </li>
             </ul>
         </nav>
@@ -87,6 +88,7 @@
                     <th>UserName</th>
                     <th>Date</th>
                     <th>Totalbill</th>
+                    <th>Chi Tiết</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -95,6 +97,28 @@
                         <td>${bill.getUserName()}</td>
                         <td>${bill.getDate()}</td>
                         <td>Tổng bill: ${bill.getTotabill()}</td>
+                        <td><a href="DeatailBillServlet?id=${bill.getIdBill()}">Chi tiết hóa đơn</a></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <h3>Chi tiết hóa đơn</h3>
+            <table class="table table-hover" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>NameProduct</th>
+                    <th>Img</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${product}" var="sp">
+                    <tr>
+                        <td>${sp.getNameSP()}</td>
+                        <td style="text-align: center"><img src="${sp.getImg()}" width="100" height="100"></td>
+                        <td>${sp.getAmount()}</td>
+                        <td style="text-align: center">Giá: ${sp.getPrice()}/ 1sp</td>
                     </tr>
                 </c:forEach>
                 </tbody>

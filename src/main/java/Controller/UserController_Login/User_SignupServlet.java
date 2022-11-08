@@ -35,7 +35,7 @@ public class User_SignupServlet extends HttpServlet {
         String passWord = request.getParameter("Password");
         Pattern pattern1 = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$");
         if (!pattern1.matcher(passWord).find()) {
-            request.setAttribute("messpassword", "Tối thiểu tám ký tự, ít nhất một chữ cái và một số !");
+            request.setAttribute("messpassword", "Tối thiểu sáu ký tự, ít nhất một chữ cái và một số !");
         }
 
         String Password_x = request.getParameter("Password_x");

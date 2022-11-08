@@ -2,6 +2,7 @@ package dao.Cart;
 
 import Models.Bill.Bill;
 import Models.Cart.Cart;
+import Models.Deatailcart.Deatailcart;
 import Models.Product.Product;
 import Models.User.User;
 import dao.User.CRUD_user;
@@ -134,6 +135,7 @@ public class CRUD_cart {
         }
     }
 
+
     public static void deleteBill(User user) {
         try {
             String sql = "DELETE FROM bill WHERE userName = ? ;";
@@ -148,7 +150,7 @@ public class CRUD_cart {
     public static int TotalBill(String userName, int idCart) {
         int totalBill = 0;
         try {
-            String sql = " select sum(bill) as totabill  from (select cart.idcart, product.idproduct, (sum( deatail.amout)*product.price) as bill  " + " from cart join deatail on deatail.idcart = cart.idcart " + "                          join product on deatail.idproduct = product.idproduct " + "where userName = ? " + "group by idproduct) as totabill " + "where idcart = ? " + "group by idcart;";
+            String sql = " select sum(bill) as totabill  from (select cart.idcart, product.idproduct, (sum( deatail.amout)*product.price) as bill from cart join deatail on deatail.idcart = cart.idcart  join product on deatail.idproduct = product.idproduct " + "where userName = ? " + "group by idproduct) as totabill " + "where idcart = ? " + "group by idcart;";
             PreparedStatement preparedStatement = CRUD_user.connection.prepareStatement(sql);
             preparedStatement.setString(1, userName);
             preparedStatement.setInt(2, idCart);
@@ -164,10 +166,10 @@ public class CRUD_cart {
 
     public static void newBill(Bill bill) {
         try {
-            String sql = "insert into bill value (?,?,?,?)";
+            String sql = "insert into bill (userName,idCart,Date,totalBill) value (?,?,?,?)";
             PreparedStatement preparedStatement = CRUD_user.connection.prepareStatement(sql);
-            preparedStatement.setInt(1, bill.getIdcart());
-            preparedStatement.setString(2, bill.getUserName());
+            preparedStatement.setString(1, bill.getUserName());
+            preparedStatement.setInt(2, bill.getIdcart());
             preparedStatement.setDate(3, Date.valueOf(bill.getDate().toLocalDate()));
             preparedStatement.setInt(4, bill.getTotabill());
             preparedStatement.execute();
@@ -196,16 +198,36 @@ public class CRUD_cart {
             preparedStatement.setString(1, user.getUserName());
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                int idBill = resultSet.getInt("idBill");
                 int idcart = resultSet.getInt("idcart");
                 String userName = resultSet.getString("userName");
                 LocalDateTime date = resultSet.getDate("date").toLocalDate().atStartOfDay();
                 int totalbill = resultSet.getInt("totalbill");
-                bills.add(new Bill(userName, idcart, date, totalbill));
+                bills.add(new Bill(idBill,userName, idcart, date, totalbill));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return bills;
+    }
+
+    public static List<Deatailcart> showDeatail(Cart cart) {
+        List<Deatailcart> deatailcarts = new ArrayList<>();
+        try {
+            String sql = "select * from deatail where idcart = ? ";
+            PreparedStatement preparedStatement = CRUD_user.connection.prepareStatement(sql);
+            preparedStatement.setInt(1, cart.getIdcart());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idcart = resultSet.getInt("idcart");
+                int idproduct = resultSet.getInt("idproduct");
+                int amout = resultSet.getInt("amout");
+                deatailcarts.add(new Deatailcart(idcart, idproduct, amout));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return deatailcarts;
     }
 
 
@@ -216,11 +238,12 @@ public class CRUD_cart {
             PreparedStatement preparedStatement = CRUD_user.connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                int idBill = resultSet.getInt("idBill");
                 int idcart = resultSet.getInt("idcart");
                 String userName = resultSet.getString("userName");
                 LocalDateTime date = resultSet.getDate("date").toLocalDate().atStartOfDay();
                 int totalbill = resultSet.getInt("totalbill");
-                bills.add(new Bill(userName, idcart, date, totalbill));
+                bills.add(new Bill(idBill,userName, idcart, date, totalbill));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -244,4 +267,26 @@ public class CRUD_cart {
         return Bill;
     }
 
+
+    public static ArrayList<Product> getProductBill(int idBill) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "select product.idproduct, product.nameproduct, product.price,product.img,deatail.amout,product.idproductType  from bill join cart on cart.idcart = bill.idCart join deatail on deatail.idcart = cart.idcart join product on product.idproduct = deatail.idproduct where idBill = ?";
+            PreparedStatement preparedStatement = CRUD_user.connection.prepareStatement(sql);
+            preparedStatement.setInt(1, idBill);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idproduct = resultSet.getInt("idproduct");
+                String nameSP = resultSet.getString("nameproduct");
+                int price = resultSet.getInt("price");
+                String img = resultSet.getString("img");
+                int amount = resultSet.getInt("amout");
+                int productType = resultSet.getInt("idproductType");
+                products.add(new Product(idproduct, nameSP, price, img, amount, productType));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return products;
+    }
 }

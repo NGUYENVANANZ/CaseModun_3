@@ -7,7 +7,7 @@ import dao.User.CRUD_user;
 import java.util.List;
 
 public class UserService {
-    static List<User> users = CRUD_user.getAll();
+    static List<User> users = CRUD_user.getAllUser();
 
     public static void Signup(User user) {
         users.add(user);

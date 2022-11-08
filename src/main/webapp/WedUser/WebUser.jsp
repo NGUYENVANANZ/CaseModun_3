@@ -29,6 +29,8 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <link href="/WedUser/style.css" rel="stylesheet">
 
@@ -64,7 +66,8 @@
                 </li>
                 <li><a href="/ProductServlet_showBill" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
                     <span>Lịch Sử </span></a></li>
-                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Đăng Xuất</span></a>
+                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i>
+                    <span>Đăng Xuất</span></a>
                 </li>
             </ul>
         </nav>
@@ -74,22 +77,60 @@
 <!--Trang chủ-->
 <main id="main">
 
-        <div class="container">
-            <div class="section-title">
-                <h2>Trang Chủ</h2>
-                <c:forEach items="${product}" var="sp">
-                    <form action="/ProductServlet_Buy" method="get">
-                        <img src="${sp.getImg()}" alt="" width="100" height="100">
-                        <input name="nameProduct" value="${sp.getNameSP()}" readonly>
-                        <a style="text-align: center">Giá: ${sp.getPrice()}</a>
-                        <input class="input-qty" max="${sp.getAmount()}" min="1" name="amount" type="number" value="1"
-                               style=" width: 100px ; text-align: center">
-                        <button type="submit" class="btn btn-outline-success">MUA</button>
-                    </form>
-                </c:forEach>
+    <div class="container">
+        <div class="section-title">
+            <h2>Trang Chủ</h2>
 
-            </div>
+            <table>
+                <tr>
+
+                    <td>
+
+                            <div class="dropdown">
+                                <button type="submit" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                    Loại
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/SearchProductServlet?action=productType&&value=1">Pod</a></li>
+                                    <li><a class="dropdown-item" href="/SearchProductServlet?action=productType&&value=2">Tinh Dầu</a></li>
+                                    <li><a class="dropdown-item" href="/SearchProductServlet?action=productType&&value=3">Pod 1 Lần</a></li>
+                                </ul>
+                            </div>
+
+                    </td>
+                    <td>
+                            <div class="dropdown">
+                                <button type="submit" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                    Giá
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/SearchProductServlet?action=price&&value1=0&&value2=99">< 100</a></li>
+                                    <li><a class="dropdown-item" href="/SearchProductServlet?action=price&&value1=100&&value2=500">100- 500</a></li>
+                                    <li><a class="dropdown-item" href="/SearchProductServlet?action=price&&value1=501&&value2=10000"> > 500 </a></li>
+                                </ul>
+                            </div>
+                    </td>
+                    <td>
+                        <form action="/SearchProductServlet" method="post" style="margin-left: 100px">
+                            <input name="nameProduct" style="height: 35px; border-radius: 5px">
+                            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <c:forEach items="${product}" var="sp">
+                <form action="/ProductServlet_Buy" method="get">
+                    <img src="${sp.getImg()}" alt="" width="100" height="100">
+                    <input name="nameProduct" value="${sp.getNameSP()}" readonly>
+                    <a style="text-align: center">Giá: ${sp.getPrice()}</a>
+                    <input class="input-qty" max="${sp.getAmount()}" min="1" name="amount" type="number" value="1"
+                           style=" width: 100px ; text-align: center">
+                    <button type="submit" class="btn btn-outline-success">MUA</button>
+                </form>
+            </c:forEach>
+
         </div>
+    </div>
 
 </main>
 

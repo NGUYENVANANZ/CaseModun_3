@@ -62,7 +62,7 @@
                 </li>
                 <li><a href="/AdminBill_Servlet" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
                     <span>Lịch Sử </span></a></li>
-                <li><a href="/Signin_Signup/Signin.jsp" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Đăng Xuất</span></a>
+                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Đăng Xuất</span></a>
                 </li>
             </ul>
         </nav>
@@ -77,12 +77,14 @@
             <div class="section-title">
                 <h2>Lịch Sử</h2>
             </div>
+            <h1>Tổng : ${DoanhThu}</h1>
             <table class="table">
                 <thead>
                 <tr>
                     <th style="width: 380px ;">UserName</th>
                     <th style="width: 100px ;">Date</th>
                     <th style=" width: 50px ; ">totalbill</th>
+                    <th>Chi tiết</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -92,13 +94,32 @@
                             <td>${bill.getUserName()}</td>
                             <td>${bill.getDate()}</td>
                             <td>${bill.getTotabill()}</td>
+                            <td><a href="/DetailBillAdminServlet?id=${bill.getIdBill()}">Chi tiết hóa đơn</a></td>
                         </tr>
                     </form>
                 </c:forEach>
                 </tbody>
             </table>
         </div>
-        <h1>Tổng : ${DoanhThu}</h1>
+        <h3>Chi tiết hóa đơn</h3>
+        <table class="table table-hover" style="width: 100%">
+            <thead>
+            <tr>
+                <th>NameProduct</th>
+                <th>Img</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${product}" var="sp">
+                <tr>
+                    <td>${sp.getNameSP()}</td>
+                    <td style="text-align: center"><img src="${sp.getImg()}" width="100" height="100"></td>
+                    <td>${sp.getAmount()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </section>
 
 </main>

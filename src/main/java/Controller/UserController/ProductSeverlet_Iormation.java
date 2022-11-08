@@ -1,4 +1,4 @@
-package Controller.ProductController;
+package Controller.UserController;
 
 import Models.User.User;
 import Service.UserService.UserService;

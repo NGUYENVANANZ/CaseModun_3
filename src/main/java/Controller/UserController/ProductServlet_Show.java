@@ -1,7 +1,6 @@
-package Controller.ProductController;
+package Controller.UserController;
 
 import Service.ProductService.ProductService;
-import Service.UserService.UserService;
 import dao.Product.CRUD_product;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;

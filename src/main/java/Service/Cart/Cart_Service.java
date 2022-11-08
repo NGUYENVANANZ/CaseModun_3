@@ -1,6 +1,7 @@
 package Service.Cart;
 
 import Models.Cart.Cart;
+import Models.Deatailcart.Deatailcart;
 import Models.User.User;
 import dao.Cart.CRUD_cart;
 import jakarta.servlet.http.HttpSession;
@@ -19,7 +20,17 @@ public class Cart_Service {
                 idCart.add(cart.getIdcart());
             }
         }
-    return idCart;
+        return idCart;
     }
+
+    public static List<Integer> idProduct(List<Deatailcart> deatailcarts) {
+        List<Integer> idProduct = new ArrayList<>();
+        for (Deatailcart deatail : deatailcarts
+        ) {
+            idProduct.add(deatail.getIdproduct());
+        }
+        return idProduct;
+    }
+
 
 }

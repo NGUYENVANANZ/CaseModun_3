@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class AdminQLU_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.setAttribute("user", CRUD_user.getAllUser());
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WedAdmin/WebAdminQLU.jsp");
         requestDispatcher.forward(request, response);

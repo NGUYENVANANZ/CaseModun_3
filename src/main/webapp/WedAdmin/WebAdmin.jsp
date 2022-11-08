@@ -54,7 +54,7 @@
                 </li>
                 <li><a href="/AdminBill_Servlet" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
                     <span>Lịch Sử </span></a></li>
-                <li><a href="/Signin_Signup/Signin.jsp" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Đăng Xuất</span></a>
+                <li><a href="/User_SigninServlet" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Đăng Xuất</span></a>
                 </li>
             </ul>
         </nav>

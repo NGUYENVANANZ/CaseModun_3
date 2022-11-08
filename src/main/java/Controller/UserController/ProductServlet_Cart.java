@@ -1,11 +1,7 @@
-package Controller.ProductController;
+package Controller.UserController;
 
-import Models.Cart.Cart;
 import Models.Product.Product;
 import Models.User.User;
-import Service.Cart.Cart_Service;
-import Service.ProductService.ProductService;
-import Service.UserService.UserService;
 import dao.Cart.CRUD_cart;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
